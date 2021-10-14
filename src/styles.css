@@ -1,0 +1,33 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    display: flex;
+    align-items: center;
+    line-height: 50vh;
+    justify-content: center;
+    background: #000;
+}
+
+.title{
+    right: 21%;
+    color: rgb(229,160,4);
+    font-size: 2em;
+    position: relative;
+}
+
+.timer
+{
+    color: rgb(255, 255, 255);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 11vh;
+    box-shadow: 0 0 8px cadetblue;
+    
+}
