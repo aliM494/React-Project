@@ -3,23 +3,22 @@ import ReactDOM from 'react-dom';
 import './styles.css';
 
 var Interval;
-var count=5
 
 class Timer extends React.Component{
     constructor(){
       super();
       this.state={
-        time:count,
+        time:5,
       }
     }
   componentDidMount(){
     Interval = setInterval(()=>{
-      this.setState({time:count--});
+      this.setState(this.state.time-1);
     },1000);
   }
 
   componentDidUpdate(){
-    if(count==-1){
+    if(this.state.time==-1){
       clearInterval(Interval);
     }
   }
