@@ -21,10 +21,11 @@ const Title = () => {
   return (
     <div className='main' style={{background:(isLight) ? "white" : "black"}}>
       <h1 className='title'>{title}</h1>
-      <Timer isLight={isLight} handleIsLight={handleIsLight} />
-      <TimeList>
-        {timearr}
-      </TimeList>
+      <Timer 
+      timearr={timearr}
+      setTimearr={setTimearr}
+      isLight={isLight} 
+      handleIsLight={handleIsLight} />
     </div>
   )
 }

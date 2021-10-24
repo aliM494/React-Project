@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
+import TimeList from './Time';
 
 var Interval;
 
@@ -39,6 +40,15 @@ class Timer extends React.Component {
     }
   }
 
+  handleSaveTime=()=>{
+    let h = this.state.hour;
+    let m = this.state.minute;
+    let s = this.state.second;
+    
+    let newTime=`${h > 9 ? h : "0" + h} : ${m > 9 ? m : "0" + m} : ${s > 9 ? s : "0" + s}`;
+
+    this.props.setTimearr([...this.props.timearr,newTime])
+  }
   stop = () => {
     this.setState({
       IsStart: false
@@ -53,6 +63,7 @@ class Timer extends React.Component {
       minute: 0,
       hour: 0
     });
+    this.props.setTimearr([]);
   }
   render() {
     let h = this.state.hour;
@@ -60,7 +71,7 @@ class Timer extends React.Component {
     let s = this.state.second;
     return (
       <>
-        <h2 className='timer'>
+        <h2 className='timer' onClick={this.handleSaveTime}>
           {`${h > 9 ? h : "0" + h} : ${m > 9 ? m : "0" + m} : ${s > 9 ? s : "0" + s}`}
         </h2>
         <span className='button_box action_button start' onClick={this.props.handleIsLight} 
@@ -73,6 +84,9 @@ class Timer extends React.Component {
         <span className='button_box action_button reset' onClick={this.reset}>reset</span>
         <span className='button_box action_button stop' onClick={this.stop}>stop</span>
         <span className='button_box action_button start' onClick={this.start}>start</span>
+        <TimeList>
+        {this.props.timearr}
+      </TimeList>
       </>
     )
   }
